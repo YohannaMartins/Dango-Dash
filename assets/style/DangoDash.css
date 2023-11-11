@@ -1,0 +1,24 @@
+*{
+    background-color: #FFF9C4;
+}
+
+.titulo {
+    font-size: 40px;
+    font-family: 'Sans-Serif';
+    color: #A367A5;
+    text-align: center;
+}
+
+.instrucoes {
+    font-size: 20px;
+    font-family: 'Sans-Serif';
+    color: #6495ED;
+    text-align: center;
+}
+
+canvas{                
+    margin: 0 auto;
+    border: 1px solid #804080;
+    display: block;
+    background-color:#D8BFD8;
+}
