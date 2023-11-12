@@ -1,19 +1,29 @@
 var cvs = document.getElementById("dango");
 var ctx = cvs.getContext("2d");
 var box = 35;
+var d;
 var dango = [];
+var game = setInterval(draw,100);
+
+var dangoRosa = new Image();
+dangoRosa.src = './assets/images/dangoRosa.png';
+
+var dangoBranco = new Image();
+dangoBranco.src = './assets/images/dangoBranco.png';
+
+var foodImg = new Image();
+foodImg.src = './assets/images/dangoVerde.png';
+
+var food = {
+    x : Math.floor(Math.random()*22+1) * box,
+    y : Math.floor(Math.random()*14+1) * box
+}
 
 dango[0] = {
     x : 10 * box,
     y : 10 * box
 };
 
-var food = {
-    x : Math.floor(Math.random()*14+1) * box,
-    y : Math.floor(Math.random()*10+1) * box
-}
-
-var d;
 document.addEventListener("keydown",direcao);
 
 function direcao(event){
@@ -38,15 +48,6 @@ function collision(head,array){
     return false;
 }
 
-var dangoRosa = new Image();
-dangoRosa.src = './assets/images/dangoRosa.png';
-
-var dangoBranco = new Image();
-dangoBranco.src = './assets/images/dangoBranco.png';
-
-var foodImg = new Image();
-foodImg.src = './assets/images/dangoVerde.png';
-
 function draw(){    
     ctx.fillStyle = "#D8BFD8";
     ctx.fillRect(0,0,cvs.width,cvs.height);        
@@ -68,8 +69,8 @@ function draw(){
     
     if(dangoX == food.x && dangoY == food.y){        
         food = {
-            x : Math.floor(Math.random()*14+1) * box,
-            y : Math.floor(Math.random()*10+1) * box
+            x : Math.floor(Math.random()*22+1) * box,
+            y : Math.floor(Math.random()*14+1) * box
         }
     }else{
         dango.pop();
@@ -80,11 +81,10 @@ function draw(){
         y : dangoY
     }    
 
-    if(dangoX < 0 || dangoX > cvs.width-box || dangoY < 0 || dangoY > cvs.height-box || collision(newHead,dango)){
+    if (dangoX < 0 || dangoX >= cvs.width || dangoY < 0 || dangoY >= cvs.height || collision(newHead, dango)) {
         clearInterval(game);
-    }    
+    }
 
     dango.unshift(newHead);
-}
 
-var game = setInterval(draw,100);
+}

@@ -1,12 +1,21 @@
 *{
     background-color: #FFF9C4;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: middle;
+    text-align: center;
 }
 
 .titulo {
     font-size: 40px;
     font-family: 'Sans-Serif';
+    font-weight: bold;
     color: #A367A5;
     text-align: center;
+    padding: 10px;
 }
 
 .instrucoes {
@@ -14,6 +23,7 @@
     font-family: 'Sans-Serif';
     color: #6495ED;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 canvas{                
